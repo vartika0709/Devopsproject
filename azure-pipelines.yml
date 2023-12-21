@@ -7,3 +7,11 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'aws'
+    command: 'init'
+    backendServiceAWS: 'devopstest'
+    backendAWSBucketName: 'devopstfstate'
+    backendAWSKey: 'terraform.tfstate'
