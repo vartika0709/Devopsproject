@@ -16,35 +16,35 @@ resource "aws_vpc" "vpcdevops" {
 # Create Subnet
 resource "aws_subnet" "subnetdevops" {
   vpc_id                  = aws_vpc.vpcdevops.id
-  cidr_block              = "10.0.1.0/24"
+  cidr_block              = "10.0.2.0/24"
   availability_zone       = "us-east-1a"  # Replace with your desired availability zone
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "Vartika-subnetdevops"
+    Name = "Varhit1-subnetdevops1"
   }
 }
 
 # Create Secrets Manager Secret
-resource "aws_secretsmanager_secret" "secretdevops-1" {
-  name = "varhitmohvsdevps23gh"
-}
+#resource "aws_secretsmanager_secret" "secretdevops-1" {
+#  name = "varhitmohvsdevps23gh"
+#}
 
-resource "aws_secretsmanager_secret" "secretdevops-2" {
-  name = "varhitmohvsdevps23hjk"
-}
+#resource "aws_secretsmanager_secret" "secretdevops-2" {
+#  name = "varhitmohvsdevps23hjk"
+#}
 
 
 # Create S3 Bucket
-resource "aws_s3_bucket" "vartikabucketdevops" {
-  bucket = "varhitvsabucket-devops"  # Replace with your desired bucket name
-  acl    = "private"
+#resource "aws_s3_bucket" "vartikabucketdevops" {
+#  bucket = "varhitvsabucket-devops"  # Replace with your desired bucket name
+#  acl    = "private"
 
-  versioning {
-    enabled = true
-  }
+#  versioning {
+#    enabled = true
+#  }
 
-  tags = {
-    Name = "varhitnewvsbucketdevops"
-  }
-}
+#  tags = {
+#    Name = "varhitnewvsbucketdevops"
+#  }
+#}
