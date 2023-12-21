@@ -1,20 +1,50 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
+provider "aws" {
+  region = "us-east-1"  # Replace with your desired AWS region
+}
+
+# Create VPC
+resource "aws_vpc" "vpcdevops" {
+  cidr_block = "10.0.0.0/16"
+  enable_dns_support = true
+  enable_dns_hostnames = true
+
+  tags = {
+    Name = "Vartika-vpcdevops"
   }
 }
 
-# Configure the AWS Provider
-provider "aws" {
-  region = "us-east-1"
-  access_key = "my-access-key"
-  secret_key = "my-secret-key"
+# Create Subnet
+resource "aws_subnet" "subnetdevops" {
+  vpc_id                  = aws_vpc.vpcdevops.id
+  cidr_block              = "10.0.1.0/24"
+  availability_zone       = "us-east-1a"  # Replace with your desired availability zone
+  map_public_ip_on_launch = true
+
+  tags = {
+    Name = "Vartika-subnetdevops"
+  }
 }
 
-# Create a VPC
-resource "aws_vpc" "example" {
-  cidr_block = "10.0.0.0/16"
+# Create Secrets Manager Secret
+resource "aws_secretsmanager_secret" "secretdevops-1" {
+  name = "vartikascrt1"
+}
+
+resource "aws_secretsmanager_secret" "secretdevops-2" {
+  name = "vartikascrt2"
+}
+
+
+# Create S3 Bucket
+resource "aws_s3_bucket" "vartikabucketdevops" {
+  bucket = "vartikabucket-devops"  # Replace with your desired bucket name
+  acl    = "private"
+
+  versioning {
+    enabled = true
+  }
+
+  tags = {
+    Name = "vartikabucketdevops"
+  }
 }
