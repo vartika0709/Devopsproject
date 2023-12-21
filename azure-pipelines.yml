@@ -12,6 +12,6 @@ steps:
   inputs:
     provider: 'aws'
     command: 'init'
-    backendServiceAWS: 'devopstest'
+    backendServiceAWS: 'newdevopstestproj'
     backendAWSBucketName: 'devopstfstate'
     backendAWSKey: 'terraform.tfstate'
