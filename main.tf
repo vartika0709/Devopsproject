@@ -27,17 +27,17 @@ resource "aws_subnet" "subnetdevops" {
 
 # Create Secrets Manager Secret
 resource "aws_secretsmanager_secret" "secretdevops-1" {
-  name = "vartikascrt1"
+  name = "varhitmohvsdevps23gh"
 }
 
 resource "aws_secretsmanager_secret" "secretdevops-2" {
-  name = "vartikascrt2"
+  name = "varhitmohvsdevps23hjk"
 }
 
 
 # Create S3 Bucket
 resource "aws_s3_bucket" "vartikabucketdevops" {
-  bucket = "vartikabucket-devops"  # Replace with your desired bucket name
+  bucket = "varhitvsabucket-devops"  # Replace with your desired bucket name
   acl    = "private"
 
   versioning {
@@ -45,6 +45,6 @@ resource "aws_s3_bucket" "vartikabucketdevops" {
   }
 
   tags = {
-    Name = "vartikabucketdevops"
+    Name = "varhitnewvsbucketdevops"
   }
 }
