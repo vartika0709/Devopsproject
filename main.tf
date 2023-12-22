@@ -34,7 +34,7 @@ resource "aws_subnet" "subnetdevops" {
 
 # Create Secrets Manager Secret
 resource "aws_secretsmanager_secret" "secretdevops-1" {
-  name = "varhitpohvsdevps23gh"
+  name = "varsakshinewsecret"
 }
 
 #resource "aws_secretsmanager_secret" "secretdevops-2" {
