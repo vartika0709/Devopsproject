@@ -41,7 +41,7 @@ resource "aws_secretsmanager_secret" "secretdevops-1" {
 #  name = "varhitmohvsdevps23hjk"
 #}
 
-"aws_secretsmanager_secret_version" "my_secret_version" {
+resource "aws_secretsmanager_secret_version" "my_secret_version" {
   secret_id     = aws_secretsmanager_secret.secretdevops-1.id
   secret_string = <<EOF
 {
