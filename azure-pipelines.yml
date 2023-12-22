@@ -4,10 +4,6 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-variables:
-  username: $(username)
-  password: $(password)
-
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
@@ -31,6 +27,3 @@ steps:
     provider: 'aws'
     command: 'apply'
     environmentServiceNameAWS: 'finaldevopstestsc'
-    variableSet: |        
-        username=$(username)
-        password=$(password) 
