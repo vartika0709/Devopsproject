@@ -34,12 +34,22 @@ resource "aws_subnet" "subnetdevops" {
 
 # Create Secrets Manager Secret
 resource "aws_secretsmanager_secret" "secretdevops-1" {
-  name = "varsakshinewsecret"
+  name = "vanisthanewscrtsecret"
 }
 
 #resource "aws_secretsmanager_secret" "secretdevops-2" {
 #  name = "varhitmohvsdevps23hjk"
 #}
+
+"aws_secretsmanager_secret_version" "my_secret_version" {
+  secret_id     = aws_secretsmanager_secret.secretdevops-1.id
+  secret_string = <<EOF
+{
+  "username": var.username,
+  "password": var.password
+}
+EOF
+}
 
 
 # Create S3 Bucket
