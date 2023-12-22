@@ -14,22 +14,16 @@ steps:
     command: 'init'
     backendServiceAWS: 'finaldevopstestsc'
     backendAWSBucketName: 'devopstfstate'
-    backendAWSKey: 'terraform.tfstate'
+    backendAWSKey: 'tf/terraform.tfstate'
 
 - task: TerraformTaskV4@4
   inputs:
     provider: 'aws'
     command: 'plan'
     environmentServiceNameAWS: 'finaldevopstestsc'
-    backendServiceAWS: 'finaldevopstestsc'
-    backendAWSBucketName: 'devopstfstate'
-    backendAWSKey: 'terraform.tfstate'
 
 - task: TerraformTaskV4@4
   inputs:
     provider: 'aws'
     command: 'apply'
     environmentServiceNameAWS: 'finaldevopstestsc'
-    backendServiceAWS: 'finaldevopstestsc'
-    backendAWSBucketName: 'devopstfstate'
-    backendAWSKey: 'terraform.tfstate'
