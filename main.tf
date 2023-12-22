@@ -43,12 +43,7 @@ resource "aws_secretsmanager_secret" "secretdevops-1" {
 
 resource "aws_secretsmanager_secret_version" "my_secret_version" {
   secret_id     = aws_secretsmanager_secret.secretdevops-1.id
-  secret_string = <<EOF
-{
-  "username": var.username,
-  "password": var.password
-}
-EOF
+  secret_string = jsonencode(var.example)
 }
 
 
