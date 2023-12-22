@@ -41,10 +41,10 @@ resource "aws_secretsmanager_secret" "secretdevops-1" {
 #  name = "varhitmohvsdevps23hjk"
 #}
 
-resource "aws_secretsmanager_secret_version" "my_secret_version" {
-  secret_id     = aws_secretsmanager_secret.secretdevops-1.id
-  secret_string = jsonencode(var.example)
-}
+#resource "aws_secretsmanager_secret_version" "my_secret_version" {
+#  secret_id     = aws_secretsmanager_secret.secretdevops-1.id
+#  secret_string = jsonencode(var.example)
+#}
 
 
 # Create S3 Bucket
