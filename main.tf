@@ -1,6 +1,13 @@
 provider "aws" {
   region = "us-east-1"  # Replace with your desired AWS region
 }
+terraform {
+  backend "s3" {
+    bucket = "devopstfstate"
+    key    = "tf/terraform.tfstate"
+    region = "us-east-1"
+  }
+}
 
 # Create VPC
 resource "aws_vpc" "vpcdevops" {
@@ -26,9 +33,9 @@ resource "aws_subnet" "subnetdevops" {
 }
 
 # Create Secrets Manager Secret
-#resource "aws_secretsmanager_secret" "secretdevops-1" {
-#  name = "varhitmohvsdevps23gh"
-#}
+resource "aws_secretsmanager_secret" "secretdevops-1" {
+  name = "varhitpohvsdevps23gh"
+}
 
 #resource "aws_secretsmanager_secret" "secretdevops-2" {
 #  name = "varhitmohvsdevps23hjk"
@@ -36,15 +43,15 @@ resource "aws_subnet" "subnetdevops" {
 
 
 # Create S3 Bucket
-#resource "aws_s3_bucket" "vartikabucketdevops" {
-#  bucket = "varhitvsabucket-devops"  # Replace with your desired bucket name
-#  acl    = "private"
+resource "aws_s3_bucket" "vartikabucketdevops" {
+  bucket = "varhitvsabucket-devops"  # Replace with your desired bucket name
+  acl    = "private"
 
-#  versioning {
-#    enabled = true
-#  }
+  versioning {
+    enabled = true
+  }
 
-#  tags = {
-#    Name = "varhitnewvsbucketdevops"
-#  }
-#}
+  tags = {
+    Name = "varhitnewvsbucketdevops"
+  }
+}
