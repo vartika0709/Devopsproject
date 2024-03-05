@@ -12,7 +12,7 @@ steps:
   inputs:
     provider: 'aws'
     command: 'init'
-    backendServiceAWS: 'newdevopstestproj'
+    backendServiceAWS: 'newdevopstestproj-githubtestproject'
     backendAWSBucketName: 'devopstfstate'
     backendAWSKey: 'tf/terraform.tfstate'
 
@@ -20,10 +20,10 @@ steps:
   inputs:
     provider: 'aws'
     command: 'plan'
-    environmentServiceNameAWS: 'newdevopstestproj'
+    environmentServiceNameAWS: 'newdevopstestproj-githubtestproject'
 
 - task: TerraformTaskV4@4
   inputs:
     provider: 'aws'
     command: 'apply'
-    environmentServiceNameAWS: 'newdevopstestproj'
+    environmentServiceNameAWS: 'newdevopstestproj-githubtestproject'
